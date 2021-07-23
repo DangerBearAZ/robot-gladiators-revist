@@ -1,21 +1,18 @@
-// fight 
+
 
 var playerName = prompt("what is your robot's name?");
 var playerHealth = 100;
 var playerMoney = 10;
-// check to see if the value of the playerHealth variable  is create than 0 
-if (playerHealth > 0) {
-    console.log("Your player is still alive!");
-}
 var playerAttack = 10; 
 
-var enemyName = "GRR";
+
+var enemyNames = ["GRR", "HISS", "BITE"];
 var enemyHealth = 50;
 var enemyAttack = 12; 
 
-console.log(playerName, playerAttack, playerHealth); 
+// console.log(playerName, playerAttack, playerHealth); 
 
-function fight () {
+var  fight = function (enemyName) {
     alert('Welcome to Robot Gladiators!');
     // ask the players if they want to fight 
     var promptFight = prompt("Would you like to FIGHT or SKIP this battle? enter 'FIGHT' OR 'SKIP' to choose.");
@@ -23,20 +20,20 @@ function fight () {
         // remove enemy's health by subtracting the amount set in the playerAttack 
         enemyHealth = enemyHealth - playerAttack;
         console.log(
-            playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+            playerName + " attacked " + enemyNames + ". " + enemyNames + " now has " + enemyHealth + " health remaining."
           );
 
           //check enemy's health 
 if (enemyHealth <= 0) {
-    alert(enemyName = 'has died');
+    alert(enemyNames = 'has died');
 } else {
-    alert(enemyName + " still has " + enemyHealth + " health left.");
+    alert(enemyNames + " still has " + enemyHealth + " health left.");
 }
 
 // remove player's health by subtracting the amount set in the enemy attack 
 playerHealth = playerHealth - enemyAttack;
 console.log(
-    enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+    enemyNames + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
   );
 
   //check player's health 
@@ -69,4 +66,6 @@ else {
 
 };
 
-fight();
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
